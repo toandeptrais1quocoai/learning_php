@@ -1,0 +1,50 @@
+<html><!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<script lang="javascript">
+    alert("hello world");
+</script>
+<script language = "javascript" src="javascript/demo.js"> </script>
+<body>
+    <button id="btnTest" onclick="alert('ngocctoannnn')">xin chao</button>
+    <script src="javascript/demo.js">
+       
+    </script>
+    <button id="myButton">nhấn vào đi
+
+    </button>
+    <script>
+        document.getElementById("myButton").onclick = function(){
+            alert("sự kiện đã dc kích hoạt")
+        };
+    </script>
+     </script>
+    <button id="myButton">nhấn vào đây
+
+    </button>
+    <script>
+        document.getElementById("myButton").onclick = function(){
+            alert("hahahahahahhahaha")
+        };
+    </script>
+
+    <form id="myForm">
+        <input type="text" id="name" placeholder="nhập tên:">
+        <button type="submit">Gửi</button>
+    </form>
+    <script>
+        document.getElementById("myForm").addEventListener("submit",function(event){
+            let name = document.getElementById("name").value;
+            if (name === ""){
+                alert("nhập tên đi!");
+                event.preventDefault();
+            }
+        });
+    </script>
+    
+</body>
+</html></html>
