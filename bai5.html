@@ -1,0 +1,95 @@
+// ...existing code...
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Đăng nhập / Đăng ký</title>
+</head>
+<body>
+
+<form id="myForm">
+    <fieldset>
+      <legend>Đăng nhập</legend>
+
+      <label for="username">Tên đăng nhập:</label>
+      <input type="text" id="username" name="username" required>
+
+      <label for="password">Mật khẩu:</label>
+      <input type="password" id="password" name="password" required>
+
+      <input type="submit" value="Đăng nhập">
+    </fieldset>
+</form>
+
+<h1>Đăng ký tài khoản</h1>
+<p>Nhập và lựa chọn thông tin đăng ký</p>
+
+<form id="register-form">
+    <input type="text" id="firstname" name="firstname" placeholder="Tên" required>
+    <input type="text" id="lastname" name="lastname" placeholder="Họ đệm" required><br><br>
+
+    <input type="email" id="email" name="email" placeholder="Địa chỉ Email" required>
+    <input type="tel" id="phonenumber" name="phonenumber" placeholder="SĐT" required pattern="\d+"><br><br>
+    
+    <label for="city">Chọn thành phố</label>
+    <select id="city" name="city" required>
+        <option value="" disabled selected>Chọn tỉnh</option>
+        <option value="HaTay">Hà Tây</option>
+        <option value="HaNoi">Hà Nội</option>
+        <option value="HaiPhong">Hải Phòng</option>
+        <option value="HaGiang">Hà Giang</option>
+        <option value="QuangNinh">Quảng Ninh</option>
+        <option value="HungYen">Hưng Yên</option>
+        <option value="VinhPhuc">Vĩnh Phúc</option>
+        <option value="PhuTho">Phú Thọ</option>
+        <option value="NhaTrang">Nha Trang</option>
+    </select>
+    <br><br>
+
+    <textarea id="note" name="note" rows="5" cols="50" placeholder="Ghi chú"></textarea>
+    <br><br>
+
+    <input type="submit" id="btndangki" name="dangky" value="Đăng ký">
+</form>
+
+<script>
+    // Đăng nhập: kiểm tra đơn giản
+    document.getElementById("myForm").addEventListener("submit", function (event) {
+        const name = document.getElementById("username").value.trim();
+        if (!name) {
+            alert("Vui lòng nhập tên đăng nhập!");
+            event.preventDefault();
+        }
+    });
+
+    // Đăng ký: validate và xử lý
+    document.getElementById("register-form").addEventListener("submit", function (event) {
+        event.preventDefault();
+
+        const firstname = document.getElementById("firstname").value.trim();
+        const lastname = document.getElementById("lastname").value.trim();
+        const email = document.getElementById("email").value.trim();
+        const phonenumber = document.getElementById("phonenumber").value.trim();
+        const city = document.getElementById("city").value;
+
+        if (!firstname || !lastname || !email || !phonenumber || !city) {
+            alert("Vui lòng điền đầy đủ thông tin bắt buộc.");
+            return;
+        }
+
+
+       
+        console.log("Họ tên:", lastname + " " + firstname);
+        console.log("Email:", email);
+        console.log("SĐT:", phonenumber);
+        console.log("Tỉnh/Thành:", city);
+
+        alert("Đăng ký thành công");
+        this.reset();
+    });
+</script>
+
+</body>
+</html>
+// ...existing code...

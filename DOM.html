@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tổng hợp 4 Ví dụ DOM và Validation</title>
+    <title>Tổng hợp 4 Ví dụ JavaScript DOM và Validation</title>
     
     <style>
         body { 
@@ -63,6 +63,8 @@
             color: red; 
             font-weight: bold; 
         }
+        
+        /* CSS 3: VÍ DỤ THAY THẾ PHẦN TỬ */
         #img-container {
             text-align: center;
             margin-top: 20px;
@@ -71,7 +73,17 @@
             width: 200px;
             height: auto;
             border: 2px solid #333;
+            display: block;
+            margin: 0 auto 10px auto;
         }
+        /* Style cho đoạn văn bản thay thế */
+        .replaced-text {
+            color: red;
+            font-weight: bold;
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+
         hr {
             margin: 30px 0;
             border: 0;
@@ -85,8 +97,8 @@
 
     <h2>1. Lấy và Gán Style</h2>
     <p id="text">Đây là đoạn văn bản có sẵn CSS.</p>
-    <button onclick="getStyle()">✍️ Lấy style</button>
-    <button onclick="setStyle()">🎨 Gán style</button>
+    <button onclick="getStyle()">Lấy style</button>
+    <button onclick="setStyle()"> Gán style</button>
     <p id="result">Kết quả Style:</p>
     
     <hr>
@@ -104,10 +116,13 @@
 
     <hr>
     
-    <h2>3. Thay thế Phần tử (Thay đổi thuộc tính Image Source)</h2>
+    <h2>3. Thay thế Phần tử (Replace Child)</h2>
     <div id="img-container">
-        <img id="image" src="https://via.placeholder.com/200x200/0000FF/FFFFFF?text=Anh_Goc" alt="Hình ảnh ban đầu">
-        <button onclick="replaceElement()">🖼️ Thay thế hình ảnh</button>
+        <img id="image" id="image"
+        src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3a/T1_esports_logo.svg/2560px-T1_esports_logo.svg.png"
+        alt="Hình ảnh ban đầu">
+        <br>
+        <button onclick="replaceElement()">Thay thế hình ảnh</button>
     </div>
     
     <hr>
@@ -149,26 +164,25 @@
         function changeText() {
             document.getElementById('title').textContent = "Nội dung đã được thay đổi!";
             
-            // Lấy đoạn văn bản đầu tiên có class 'description'
             const paragraph = document.querySelector('.description');
             paragraph.className = 'highlight'; 
             
-            // Thêm phần tử mới vào danh sách
             const list = document.getElementById('list');
             const newLi = document.createElement('li');
             newLi.textContent = "Phần tử mới được thêm!";
             list.appendChild(newLi);
         }
 
-        // --- CHỨC NĂNG 3: THAY THẾ PHẦN TỬ ---
         function replaceElement() {
-            const imageElement = document.getElementById('image');
-            
-            // Thay đổi thuộc tính src sang ảnh mới
-            imageElement.src = 'https://via.placeholder.com/200x200/FF5733/FFFFFF?text=Anh_Moi';
-            imageElement.alt = 'Hình ảnh mới';
-            alert("Đã thay thế hình ảnh thành công!");
-        }
+        const imageElement = document.getElementById("image");
+
+        // Ảnh mới
+        imageElement.src =
+          "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ2tnamAgTNYi2nE0I8o2UMowUDwdcfsa27Ew&s";
+        imageElement.alt = "Hình ảnh mới";
+        alert("Đã thay thế hình ảnh T liệt!");
+      }
+
 
         // --- CHỨC NĂNG 4: VALIDATION LOGIN ---
         function validateLogin() {
